@@ -104,14 +104,14 @@ class MainMenuState extends MusicBeatState
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 		var menuItem:FlxSprite = new FlxSprite(100, 100);
-		menuItem.scale.x = scale;
-		menuItem.scale.y = scale;
-		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
-		menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-		menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+		menuItem.scale.x = scale * 2;
+		menuItem.scale.y = scale * 2;
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[0]);
+		menuItem.animation.addByPrefix('idle', optionShit[0] + " basic", 24);
+		menuItem.animation.addByPrefix('selected', optionShit[0] + " white", 24);
 		menuItem.animation.play('idle');
-		menuItem.ID = i;
-		menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
+		menuItem.ID = 0;
+		menuItem.setGraphicSize(Std.int(menuItem.width * 0.70));
 		menuItem.screenCenter(X);
 		menuItems.add(menuItem);
 		var scr:Float = (optionShit.length - 4) * 0.135;
@@ -122,14 +122,14 @@ class MainMenuState extends MusicBeatState
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 		var menuItem:FlxSprite = new FlxSprite(100, 250);
-		menuItem.scale.x = scale;
-		menuItem.scale.y = scale;
-		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
-		menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-		menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+		menuItem.scale.x = scale * 2;
+		menuItem.scale.y = scale * 2;
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[1]);
+		menuItem.animation.addByPrefix('idle', optionShit[1] + " basic", 24);
+		menuItem.animation.addByPrefix('selected', optionShit[1] + " white", 24);
 		menuItem.animation.play('idle');
-		menuItem.ID = i;
-		menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
+		menuItem.ID = 1;
+		menuItem.setGraphicSize(Std.int(menuItem.width * 0.70));
 		menuItem.screenCenter(X);
 		menuItems.add(menuItem);
 		var scr:Float = (optionShit.length - 4) * 0.135;
@@ -140,14 +140,14 @@ class MainMenuState extends MusicBeatState
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 		var menuItem:FlxSprite = new FlxSprite(100, 400);
-		menuItem.scale.x = scale;
-		menuItem.scale.y = scale;
-		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
-		menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-		menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+		menuItem.scale.x = scale * 2;
+		menuItem.scale.y = scale * 2;
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[2]);
+		menuItem.animation.addByPrefix('idle', optionShit[2] + " basic", 24);
+		menuItem.animation.addByPrefix('selected', optionShit[2] + " white", 24);
 		menuItem.animation.play('idle');
-		menuItem.ID = i;
-		menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
+		menuItem.ID = 2;
+		menuItem.setGraphicSize(Std.int(menuItem.width * 0.70));
 		menuItem.screenCenter(X);
 		menuItems.add(menuItem);
 		var scr:Float = (optionShit.length - 4) * 0.135;
@@ -158,14 +158,14 @@ class MainMenuState extends MusicBeatState
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 		var menuItem:FlxSprite = new FlxSprite(100, 550);
-		menuItem.scale.x = scale;
-		menuItem.scale.y = scale;
-		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
-		menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-		menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+		menuItem.scale.x = scale * 2;
+		menuItem.scale.y = scale * 2;
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[3]);
+		menuItem.animation.addByPrefix('idle', optionShit[3] + " basic", 24);
+		menuItem.animation.addByPrefix('selected', optionShit[3] + " white", 24);
 		menuItem.animation.play('idle');
-		menuItem.ID = i;
-		menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
+		menuItem.ID = 3;
+		menuItem.setGraphicSize(Std.int(menuItem.width * 0.70));
 		menuItem.screenCenter(X);
 		menuItems.add(menuItem);
 		var scr:Float = (optionShit.length - 4) * 0.135;
