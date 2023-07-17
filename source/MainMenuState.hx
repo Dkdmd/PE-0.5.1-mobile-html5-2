@@ -72,12 +72,12 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-		#if (html5 && MODS_ALLOWED)
+		#if (html5 && !MODS_ALLOWED)
 		var path = Main.getDataPath() + "mods/" + Paths.currentModDirectory + "/images/mainmenu/mainMenuLayout.json";
 		//trace(path, FileSystem.exists(path));
-		if (!FileSystem.exists(path)) {
-			path = Main.getDataPath() + "mods/images/mainmenu/mainMenuLayout.json";
-		}
+		//if (!FileSystem.exists(path)) {
+			//path = Main.getDataPath() + "mods/images/mainmenu/mainMenuLayout.json";
+		//}
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)) {
 			path = Main.getDataPath() + "assets/images/mainmenu/mainMenuLayout.json";
