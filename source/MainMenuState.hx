@@ -21,11 +21,10 @@ import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 import haxe.Json;
-#if MODS_ALLOWED
+#if !MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
 #end
-import path
 
 using StringTools;
 
