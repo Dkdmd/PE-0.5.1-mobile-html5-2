@@ -20,6 +20,11 @@ import lime.app.Application;
 import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
+import haxe.Json;
+#if MODS_ALLOWED
+import sys.FileSystem;
+import sys.io.File;
+#end
 
 using StringTools;
 
@@ -59,7 +64,7 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
-	var mainMenuJSON:MainMenuData
+	var mainMenuJSON:MainMenuData;
 
 	override function create()
 	{
@@ -136,7 +141,9 @@ class MainMenuState extends MusicBeatState
 		menuItem.animation.play('idle');
 		menuItem.ID = 0;
 		menuItem.setGraphicSize(Std.int(menuItem.width * 0.70));
-		menuItem.screenCenter(X);
+		if (mainMenuJSON.centerX == true){
+			menuItem.screenCenter(X);
+		}
 		menuItems.add(menuItem);
 		var scr:Float = (optionShit.length - 4) * 0.135;
 		if(optionShit.length < 6) scr = 0;
@@ -154,7 +161,9 @@ class MainMenuState extends MusicBeatState
 		menuItem.animation.play('idle');
 		menuItem.ID = 1;
 		menuItem.setGraphicSize(Std.int(menuItem.width * 0.70));
-		menuItem.screenCenter(X);
+		if (mainMenuJSON.centerX == true){
+			menuItem.screenCenter(X);
+		}
 		menuItems.add(menuItem);
 		var scr:Float = (optionShit.length - 4) * 0.135;
 		if(optionShit.length < 6) scr = 0;
@@ -172,7 +181,9 @@ class MainMenuState extends MusicBeatState
 		menuItem.animation.play('idle');
 		menuItem.ID = 2;
 		menuItem.setGraphicSize(Std.int(menuItem.width * 0.70));
-		menuItem.screenCenter(X);
+		if (mainMenuJSON.centerX == true){
+			menuItem.screenCenter(X);
+		}
 		menuItems.add(menuItem);
 		var scr:Float = (optionShit.length - 4) * 0.135;
 		if(optionShit.length < 6) scr = 0;
@@ -182,15 +193,17 @@ class MainMenuState extends MusicBeatState
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 		var menuItem:FlxSprite = new FlxSprite(mainMenuJSON.optionsP[0], mainMenuJSON.optionsP[1] + offset);
-		menuItem.scale.x = mainMenuJSON.storymP[0];
-		menuItem.scale.y = mainMenuJSON.storymodeS[1];
+		menuItem.scale.x = mainMenuJSON.optionsS[0];
+		menuItem.scale.y = mainMenuJSON.optionsS[1];
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[3]);
 		menuItem.animation.addByPrefix('idle', optionShit[3] + " basic", 24);
 		menuItem.animation.addByPrefix('selected', optionShit[3] + " white", 24);
 		menuItem.animation.play('idle');
 		menuItem.ID = 3;
 		menuItem.setGraphicSize(Std.int(menuItem.width * 0.70));
-		menuItem.screenCenter(X);
+		if (mainMenuJSON.centerX == true){
+			menuItem.screenCenter(X);
+		}
 		menuItems.add(menuItem);
 		var scr:Float = (optionShit.length - 4) * 0.135;
 		if(optionShit.length < 6) scr = 0;
