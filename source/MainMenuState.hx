@@ -76,11 +76,13 @@ class MainMenuState extends MusicBeatState
 			//path = Main.getDataPath() + "mods/images/mainmenu/mainMenuLayout.json";
 		//}
 		//trace(path, FileSystem.exists(path));
-		if (!FileSystem.exists(path)) {
-			path = Main.getDataPath() + "assets/images/mainmenu/mainMenuLayout.json";
-		}
+		
+		
 		//trace(path, FileSystem.exists(path));
 		#else if sys
+			if (!FileSystem.exists(path)) {
+				path = Main.getDataPath() + "assets/images/mainmenu/mainMenuLayout.json";
+			}
 			mainMenuJSON = Json.parse(File.getContent(path));
 		#else
 		var path = Paths.getPreloadPath("images/mainmenu/mainMenuLayout.json");
