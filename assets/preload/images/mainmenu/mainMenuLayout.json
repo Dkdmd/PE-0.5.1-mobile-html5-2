@@ -1,0 +1,11 @@
+{
+  storymodeP[0,0]
+  freeplayP[0,140]
+  creditsP[0,560]
+  optionsP[0,840]
+  storymodeS[1.0, 1.0]
+  freeplayS[1.0, 1.0]
+  creditsS[1.0, 1.0]
+  optionsS[1.0, 1.0]
+  centerX = true
+}
