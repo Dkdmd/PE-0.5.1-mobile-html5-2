@@ -21,10 +21,6 @@ import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 import haxe.Json;
-#if MODS_ALLOWED
-import sys.FileSystem;
-import sys.io.File;
-#end
 import Paths;
 
 using StringTools;
@@ -84,7 +80,8 @@ class MainMenuState extends MusicBeatState
 			path = Main.getDataPath() + "assets/images/mainmenu/mainMenuLayout.json";
 		}
 		//trace(path, FileSystem.exists(path));
-		mainMenuJSON = Json.parse(File.getContent(path));
+		#else if sys
+			mainMenuJSON = Json.parse(File.getContent(path));
 		#else
 		var path = Paths.getPreloadPath("images/mainmenu/mainMenuLayout.json");
 		mainMenuJSON = Json.parse(Assets.getText(path)); 
