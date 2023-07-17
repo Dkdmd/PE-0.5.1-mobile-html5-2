@@ -25,6 +25,7 @@ import haxe.Json;
 import sys.FileSystem;
 import sys.io.File;
 #end
+import path
 
 using StringTools;
 
