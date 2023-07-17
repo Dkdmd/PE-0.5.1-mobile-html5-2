@@ -23,6 +23,19 @@ import flixel.input.keyboard.FlxKey;
 
 using StringTools;
 
+typedef MainMenuData =
+{
+	storymodeP:Array<Int>,
+	freeplayP:Array<Int>,
+	creditsP:Array<Int>,
+	optionsP:Array<Int>,
+	storymodeS:Array<Float>,
+	freeplayS:Array<Float>,
+	creditsS:Array<Float>,
+	optionsS:Array<Float>, 
+	centerX:Bool
+}
+
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.5.1'; //This is also used for Discord RPC
@@ -54,6 +67,16 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
+		#if MODS_ALLOWED
+		var path = Main.getDataPath() + "mods/" + Paths.currentModDirectory + "/images/mainmenu/mainMenuLayout.json";
+		//trace(path, FileSystem.exists(path));
+		if (!FileSystem.exists(path)) {
+			path = Main.getDataPath() + "mods/images/mainmenu/mainMenuLayout.json";
+		}
+		//trace(path, FileSystem.exists(path));
+		if (!FileSystem.exists(path)) {
+			path = Main.getDataPath() + "assets/images/mainmenu/mainMenuLayout.json";
+		}
 
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
@@ -104,9 +127,9 @@ class MainMenuState extends MusicBeatState
 		}*/
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-		var menuItem:FlxSprite = new FlxSprite(100, 100);
-		menuItem.scale.x = scale * 2;
-		menuItem.scale.y = scale * 2;
+		var menuItem:FlxSprite = new FlxSprite(mainMenuJSON.storymodeP[0], mainMenuJSON.storymodeP[1] + offset);
+		menuItem.scale.x = mainMenuJSON.storymodeS[0];
+		menuItem.scale.y = mainMenuJSON.storymodeS[1];
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[0]);
 		menuItem.animation.addByPrefix('idle', optionShit[0] + " basic", 24);
 		menuItem.animation.addByPrefix('selected', optionShit[0] + " white", 24);
@@ -122,9 +145,9 @@ class MainMenuState extends MusicBeatState
 		menuItem.updateHitbox();
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-		var menuItem:FlxSprite = new FlxSprite(100, 250);
-		menuItem.scale.x = scale * 2;
-		menuItem.scale.y = scale * 2;
+		var menuItem:FlxSprite = new FlxSprite(mainMenuJSON.freeplayP[0], mainMenuJSON.freeplayP[1] + offset);
+		menuItem.scale.x = mainMenuJSON.freeplayS[0];
+		menuItem.scale.y = mainMenuJSON.freeplayS[1];
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[1]);
 		menuItem.animation.addByPrefix('idle', optionShit[1] + " basic", 24);
 		menuItem.animation.addByPrefix('selected', optionShit[1] + " white", 24);
@@ -140,9 +163,9 @@ class MainMenuState extends MusicBeatState
 		menuItem.updateHitbox();
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-		var menuItem:FlxSprite = new FlxSprite(100, 400);
-		menuItem.scale.x = scale * 2;
-		menuItem.scale.y = scale * 2;
+		var menuItem:FlxSprite = new FlxSprite(mainMenuJSON.creditsP[0], mainMenuJSON.creditsP[1] + offset);
+		menuItem.scale.x = mainMenuJSON.creditsS[0];
+		menuItem.scale.y = mainMenuJSON.creditsS[1];
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[2]);
 		menuItem.animation.addByPrefix('idle', optionShit[2] + " basic", 24);
 		menuItem.animation.addByPrefix('selected', optionShit[2] + " white", 24);
@@ -158,9 +181,9 @@ class MainMenuState extends MusicBeatState
 		menuItem.updateHitbox();
 
 		var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-		var menuItem:FlxSprite = new FlxSprite(100, 550);
-		menuItem.scale.x = scale * 2;
-		menuItem.scale.y = scale * 2;
+		var menuItem:FlxSprite = new FlxSprite(mainMenuJSON.optionsP[0], mainMenuJSON.optionsP[1] + offset);
+		menuItem.scale.x = mainMenuJSON.storymP[0];
+		menuItem.scale.y = mainMenuJSON.storymodeS[1];
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[3]);
 		menuItem.animation.addByPrefix('idle', optionShit[3] + " basic", 24);
 		menuItem.animation.addByPrefix('selected', optionShit[3] + " white", 24);
